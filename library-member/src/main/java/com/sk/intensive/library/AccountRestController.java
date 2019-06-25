@@ -30,11 +30,7 @@ public class AccountRestController implements AccountService {
 		return accountService.findAll(); 
 	}
 	
-	@Override
-	@GetMapping("/{id}")
-	public Account findById(@PathVariable("id") Long id) {
-		return accountService.findById(id);
-	}
+
 
 	@Override
 	@PostMapping
@@ -42,17 +38,6 @@ public class AccountRestController implements AccountService {
 		return accountService.register(account);
 	}
 
-	@Override
-	@PutMapping("/{id}")
-	public Account update(@PathVariable("id") Long id, @RequestBody Account account) {
-		return accountService.update(id, account);
-	}
-
-	@Override
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Long id) {
-		accountService.delete(id);
-	}
 	
 	@Override
 	@GetMapping("/search/name")

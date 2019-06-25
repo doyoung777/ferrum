@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import com.sk.intensive.library.domain.model.Account;
 
 public interface AccountService {
-	Account findById(Long id);
+	
 	List<Account> findAll();
 	Page<Account> findAll(Pageable pageable);
 	
@@ -16,7 +16,5 @@ public interface AccountService {
 	Account findByEmail(String email);
 	
 	Account register(Account account);
-	Account update(Long id, Account account);
 
-	void delete(Long id);
 }

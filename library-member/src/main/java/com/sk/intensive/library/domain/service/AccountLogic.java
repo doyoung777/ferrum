@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.querydsl.core.types.Predicate;
 import com.sk.intensive.library.domain.model.Account;
 import com.sk.intensive.library.domain.repository.AccountRepository;
 
@@ -18,11 +19,6 @@ public class AccountLogic implements AccountService {
 	@Autowired
 	private AccountRepository accountRepository;
 
-	@Override
-	@Transactional(readOnly=true)
-	public Account findById(Long id) {
-		return accountRepository.findOne(id);
-	}
 
 	@Override
 	@Transactional(readOnly=true)
@@ -55,21 +51,5 @@ public class AccountLogic implements AccountService {
 		return accountRepository.save(account);
 	}
 
-	@Override
-	@Transactional
-	public Account update(Long id, Account newAccount) {
-		Account oldAccount = accountRepository.findOne(id);
-		if(oldAccount != null) {
-			BeanUtils.copyProperties(newAccount,  oldAccount, "id");
-			return accountRepository.save(oldAccount);
-		} else {
-			return null;
-		}
-	}
-
-	@Override
-	@Transactional
-	public void delete(Long id) {
-		accountRepository.delete(id);
-	}
+	
 }
