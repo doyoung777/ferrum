@@ -18,6 +18,10 @@ public class Member extends AbstractEntity implements AggregateRoot {
 	private MemberType memberType;
 	
 	private Address address;
+	
+	public Member() {
+		
+	}
 
 	public Member(String name, String email, MemberType memberType) {
 		this.name = name;
