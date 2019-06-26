@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+// swagger data rest 나중에 추가..
 public class SwaggerConfig {
 	@Bean
     public Docket api() {
