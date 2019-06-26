@@ -5,7 +5,7 @@ spring:
   application:
     name: library-book
   datasource:
-    url: jdbc:mysql://34.68.252.205/book
+    url: jdbc:mysql://104.197.25.115/book
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: book
     password: book
