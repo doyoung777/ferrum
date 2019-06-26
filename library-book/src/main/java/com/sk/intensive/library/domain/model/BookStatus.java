@@ -1,6 +1,7 @@
 package com.sk.intensive.library.domain.model;
 
-public enum MemberType {
-	SELLER,
-	BUYER
+public enum BookStatus {
+	AV,
+	AC,
+	UN
 }
