@@ -1,0 +1,17 @@
+server:
+  port: 10101
+  
+spring:
+  application:
+    name: library-member
+  datasource:
+    url: jdbc:mysql://34.68.252.205/member
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: member
+    password: member
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+
