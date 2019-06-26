@@ -1,0 +1,17 @@
+server:
+  port: 10301
+  
+spring:
+  application:
+    name: library-rental
+  datasource:
+    url: jdbc:mysql://34.68.252.205/rental
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: rental
+    password: rental
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+

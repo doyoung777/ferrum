@@ -1,0 +1,17 @@
+server:
+  port: 10401
+  
+spring:
+  application:
+    name: library-notice
+  datasource:
+    url: jdbc:mysql://34.68.252.205/notice
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: notice
+    password: notice
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+

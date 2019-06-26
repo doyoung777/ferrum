@@ -1,0 +1,16 @@
+server:
+  port: 10201
+  
+spring:
+  application:
+    name: library-book
+  datasource:
+    url: jdbc:mysql://34.68.252.205/book
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: book
+    password: book
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
