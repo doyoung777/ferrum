@@ -27,8 +27,8 @@ public class SwaggerConfig {
 	
 	public ApiInfo getApiInfo() {
 		return new ApiInfoBuilder()
-				.title("Account Service")
-				.description("This pages documents Account Restful Web Service endpoints")
+				.title("Notice Service")
+				.description("This pages documents Notice Restful Web Service endpoints")
 				.version("0.1")
 				.build();
 	}
