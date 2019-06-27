@@ -19,8 +19,9 @@ import com.sk.intensive.library.domain.model.Book;
 import com.sk.intensive.library.domain.service.BookService;
 
 @RestController
-@RequestMapping("/v1/accounts")
+@RequestMapping("/v1/library-book")
 public class BookRestController implements BookService {
+	
 	@Autowired
 	private BookService bookservice;
 
@@ -29,66 +30,76 @@ public class BookRestController implements BookService {
 	public List<Book> findAll() {
 		return bookservice.findAll(); 
 	}
-
+	
 	@Override
+	public Page<Book> findAll(Pageable pageable) {
+		return bookservice.findAll(pageable);
+	}
+	
+	@Override
+	@GetMapping("/search/id")
+	public Book getBookById(long id) {
+		  return bookservice.getBookById(id);
+	}
+	
+	@Override
+	@GetMapping("/search/isbn")
 	public List<Book> searchBookIsbn(String isbn) {
 		// TODO Auto-generated method stub
-		return null;
+		return bookservice.searchBookIsbn(isbn);
 	}
 
 	@Override
+	@GetMapping("/search/title")
 	public List<Book> searchBookTitle(String title) {
 		// TODO Auto-generated method stub
-		return null;
+		return bookservice.searchBookTitle(title);
 	}
 
 	@Override
+	@GetMapping("/search/author")
 	public List<Book> searchBookAuthor(String author) {
 		// TODO Auto-generated method stub
-		return null;
+		return bookservice.searchBookAuthor(author);
 	}
 
 	@Override
+	@GetMapping("/search/publisher")
 	public List<Book> searchBookPublisher(String publisher) {
 		// TODO Auto-generated method stub
-		return null;
+		return bookservice.searchBookPublisher(publisher);
 	}
 
 	@Override
-	public void rentBook(Long bookid) {
+	@PutMapping("/update/rent")
+	public Book rentBook(long id) {
 		// TODO Auto-generated method stub
+		return bookservice.rentBook(id);
 		
 	}
 
 	@Override
-	public void returnBook(Long bookid) {
+	@PutMapping("/update/return")
+	public Book returnBook(long id) {
 		// TODO Auto-generated method stub
+		return bookservice.rentBook(id);
 		
 	}
 
 	@Override
-	public void lostBook(Long bookid) {
-		// TODO Auto-generated method stub
+	@PutMapping("/update/lost")
+	public Book lostBook(long id) {
+		return bookservice.lostBook(id);
 		
 	}
 
-	@Override
-	public void addBook(Book book) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public String getBookStatus(Long bookid) {
-		// TODO Auto-generated method stub
-		return null;
+	@PostMapping
+	public void addBook(@RequestBody Book book) {
+		bookservice.addBook(book);
 	}
 
-	@Override
-	public Book getBookInfo(Long bookid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

@@ -15,21 +15,16 @@ import com.sk.intensive.library.domain.model.Book;
 @RepositoryRestResource
 public interface BookRepository extends PagingAndSortingRepository<Book, Long>,
                                            QuerydslPredicateExecutor<Book> {
-	Book findOne(Long id);
+	
 	List<Book> findAll();
 	List<Book> findAll(Predicate predicate);
 	
+	Book getBookById(long id);
+		
 	List<Book> findByIsbn(@Param ("isbn") String isbn);
 	List<Book> findByTitle(@Param ("title") String title);
 	List<Book> findByAuthor(@Param ("author") String author);
 	List<Book> findByPublisher(@Param ("publisher") String publisher);
-	List<Book> findByCategory(@Param ("category") String category);
-	
-	
-	
-	
-	
-	
-	
+
 	 
 }

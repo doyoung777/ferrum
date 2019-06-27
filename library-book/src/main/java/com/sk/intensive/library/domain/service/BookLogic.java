@@ -17,6 +17,7 @@ import com.sk.intensive.library.domain.repository.BookRepository;
 
 @Service("bookLogic")
 public class BookLogic implements BookService {
+	
 	@Autowired
 	private BookRepository bookRepository;
 
@@ -27,15 +28,26 @@ public class BookLogic implements BookService {
 		return bookRepository.findAll();
 	}
 	
-		
+	@Override
+	@Transactional(readOnly=true)
+	public Page<Book> findAll(Pageable pageable) {
+		return bookRepository.findAll(pageable);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public Book getBookById(long id) {
+		// TODO Auto-generated method stub
+		return bookRepository.getBookById(id);
+	}
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<Book> searchBookIsbn(String isbn) {
 		// ISBN으로 책 찾기
 		return bookRepository.findByIsbn(isbn);
 	}
-
-
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<Book> searchBookTitle(String title) {
@@ -58,57 +70,53 @@ public class BookLogic implements BookService {
 		// TODO Auto-generated method stub
 		return bookRepository.findByPublisher(publisher);
 	}
-
-
+	
+	
 	@Override
-	public void rentBook(Long id) {
-		// TODO Auto-generated method stub
-		Book book = bookRepository.findOne(id);
-		book.setBookStatus(BookStatus.AC);
-		bookRepository.save(book);
-		
-	}
-
-
-	@Override
-	public void returnBook(Long id) {
-		// TODO Auto-generated method stub
-		Book book = bookRepository.findOne(id);
-		book.setBookStatus(BookStatus.AV);
-		bookRepository.save(book);
-		
-	}
-
-
-	@Override
-	public void lostBook(Long id) {
-		// TODO Auto-generated method stub
-		Book book = bookRepository.findOne(id);
-		book.setBookStatus(BookStatus.UN);
-		bookRepository.save(book);
-	}
-
-
-	@Override
+	@Transactional
 	public void addBook(Book book) {
-		// TODO Auto-generated method stub
-		
+		bookRepository.save(book);
 	}
-
+	
+	@Override
+	@Transactional
+	public Book rentBook(long id) {
+		Book book = bookRepository.getBookById(id);
+		if(book != null) {
+			book.setBookstatus(BookStatus.AC);
+			return bookRepository.save(book);
+		}
+		else {
+			return null;
+		}
+	}
+	
+	
+	@Override
+	@Transactional
+	public Book returnBook(long id) {
+		Book book = bookRepository.getBookById(id);
+		if(book != null) {
+			book.setBookstatus(BookStatus.AV);
+			return bookRepository.save(book);
+		}
+		else {
+			return null;
+		}
+	}
 
 	@Override
-	public String getBookStatus(Long id) {
-		// TODO Auto-generated method stub
-		return bookRepository.findOne(id).getBookstatus().toString();
+	@Transactional
+	public Book lostBook(long id) {
+		Book book = bookRepository.getBookById(id);
+		if(book != null) {
+			book.setBookstatus(BookStatus.UN);
+			return bookRepository.save(book);
+		}
+		else {
+			return null;
+		}
 	}
-
-
-	@Override
-	public Book getBookInfo(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	
 }

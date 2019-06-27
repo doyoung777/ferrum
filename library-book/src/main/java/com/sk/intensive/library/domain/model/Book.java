@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode (callSuper = true)
 @Entity
 public class Book extends AbstractEntity implements AggregateRoot {
 	
@@ -37,50 +38,5 @@ public class Book extends AbstractEntity implements AggregateRoot {
 		this.bookstatus = bookstatus;
 		
 	}
-	
-	public String getTitle()
-	{
-		return this.title;
-	}
-	
-	public String getAuthor()
-	{
-		return this.author;
-	}
-	
-	public String getPublisher()
-	{
-		return this.getPublisher();
-	}
-	
-	public String getIsbn()
-	{
-		return this.isbn;
-	}
-	
-	public void setTitle(String title)
-	{
-		this.title = title;
-	}
-	
-	public void setAuthor(String author)
-	{
-		this.author = author;
-	}
-	
-	public void setPublisher(String publisher)
-	{
-		this.publisher = publisher;
-	}
-	
-	public void setCategory(Category category)
-	{
-		this.category = category;
-	}
-	
-	public void setBookStatus(BookStatus bookstatus)
-	{
-		this.bookstatus = bookstatus;
-	}
-}
 
+}
