@@ -1,0 +1,15 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install']
+  dir: 'library-gateway'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/ferrum-244802/library-gateway:$REVISION_ID', '.'] 
+  dir: 'library-gateway'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/ferrum-244802/library-gateway:$REVISION_ID'] 
+  dir: 'library-gateway'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/library-gateway', 'library-gateway-sha256=gcr.io/ferrum-244802/library-gateway:$REVISION_ID']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
