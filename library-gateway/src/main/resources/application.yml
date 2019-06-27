@@ -19,7 +19,7 @@ zuul:
       url: http://34.68.161.170:10301      
     library-notice: 
       path: /notice/**
-      url: http://34.68.136.22:10401  
+      url: http://35.192.80.226:10401
 
 ribbon:
   retryable: true
