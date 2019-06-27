@@ -23,5 +23,9 @@ public interface MemberRepository extends PagingAndSortingRepository<Member, Lon
 	Member getMemberByName(@Param("name") String name);
 	Member getMemberByEmail(@Param("email")String email);
 	
+	/*
+	@Query("select * from member where login_id=%?1% and password=%?2%")
+	Member login(@Param("loginId") String loginId, @Param("password") String password);
+	*/
 }
 

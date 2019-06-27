@@ -28,5 +28,5 @@ public interface MemberService {
 	Member setAddress(long memberNum, Address address);
 	
 	/* 로그인 */
-	String login(String loginId, String password);
+	//String login(String loginId, String password);
 }

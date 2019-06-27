@@ -72,12 +72,12 @@ public class MemberRestController implements MemberService {
 		return memberService.setAddress(id, address);
 	}
 
+	/*
 	@Override
 	@GetMapping("/login")
 	public String login(String loginId, String password) {
 		return memberService.login(loginId, password);
 	}
-	
-	
+	*/
 
 }

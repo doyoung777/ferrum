@@ -85,18 +85,16 @@ public class MemberLogic implements MemberService {
 
 	}
 
+	/*
 	@Override
 	@Transactional(readOnly=true)
 	public String login(String loginId, String password) {
-		Predicate predicate = QMember.member.loginId.eq(loginId).and(QMember.member.password.eq(password));
-		List<Member> member = memberRepository.findAll(predicate);
-		if(member.isEmpty()) {
+		Member member = memberRepository.login(loginId, password);
+		if(member == null) {
 			return "아이디/패스워드가 다릅니다.";
 		}else {
-			return "반갑습니다. "+member.get(0).getName()+" 고객님";
+			return "반갑습니다. "+member.getName()+" 고객님";
 		}
 	}
-	
-	
-
+	*/
 }
