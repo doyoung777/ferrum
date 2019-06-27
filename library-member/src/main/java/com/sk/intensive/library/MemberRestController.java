@@ -29,11 +29,6 @@ public class MemberRestController implements MemberService {
 	public List<Member> findAll() {
 		return memberService.findAll();
 	}
-
-	@Override
-	public Page<Member> findAll(Pageable pageable) {
-		return memberService.findAll(pageable);
-	}
 	
 	@Override
 	@GetMapping("/search/id")
@@ -76,5 +71,13 @@ public class MemberRestController implements MemberService {
 	public Member setAddress(long id, Address address) {
 		return memberService.setAddress(id, address);
 	}
+
+	@Override
+	@GetMapping("/login")
+	public String login(String loginId, String password) {
+		return memberService.login(loginId, password);
+	}
+	
+	
 
 }

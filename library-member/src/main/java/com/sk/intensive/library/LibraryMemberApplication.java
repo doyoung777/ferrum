@@ -20,25 +20,22 @@ public class LibraryMemberApplication {
 	public CommandLineRunner execSampleCode(MemberRepository memberRepository) {	
 		return (args) -> {
 			
-			//Iterable<Member> memberList1 = memberRepository.findAll();
-			//if(memberList1 == null) {
-				insertMembers(memberRepository);
-				displayMembers(memberRepository);
-			//}	
-			//displayMembers(memberRepository);
+			//insertMembers(memberRepository);
+			displayMembers(memberRepository);	
+			
 		};
 	}
 		
 	public void insertMembers(MemberRepository memberRepository) {
-		Member member = new Member("홍길동", "silverte@sk.com", MemberType.USER);
+		Member member = new Member("홍길동", "silverte@sk.com", "silverte", "12345", MemberType.USER);
 		member.setAddress(new Address(34510, "서울시 서초구 우면동"));
 		memberRepository.save(member);
 		
-		Member member2 = new Member("이순신", "km78cho@gmail.com", MemberType.USER);
+		Member member2 = new Member("이순신", "km78cho@gmail.com", "km78cho", "54321", MemberType.USER);
 		member2.setAddress(new Address(44150, "용인시 수지구 상현동"));
 		memberRepository.save(member2);
 		
-		Member member3 = new Member("성춘향", "admin@sk.com", MemberType.ADMIN);
+		Member member3 = new Member("성춘향", "admin@sk.com", "admin", "admin", MemberType.ADMIN);
 		member3.setAddress(new Address(52110, "성남시 분당구 정자동"));
 		memberRepository.save(member3);
 	}

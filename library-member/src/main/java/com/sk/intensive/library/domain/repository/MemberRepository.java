@@ -18,6 +18,7 @@ public interface MemberRepository extends PagingAndSortingRepository<Member, Lon
 	
 	List<Member> findAll();
 	List<Member> findAll(Predicate predicate);
+	
 	Member getMemberById(@Param("id") long id);
 	Member getMemberByName(@Param("name") String name);
 	Member getMemberByEmail(@Param("email")String email);
