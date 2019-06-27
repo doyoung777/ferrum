@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DeploySampleApplication {
 
-	@RequestMapping("/")
+	@RequestMapping("/sample")
 	public String home() {
-		return "Hello Deploy Sample.";
+		return "Hello Deploy Sample!";
 	}
 	
 	public static void main(String[] args) {

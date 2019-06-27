@@ -5,7 +5,7 @@ spring:
   application:
     name: library-notice
   datasource:
-    url: jdbc:mysql://34.68.252.205/notice
+    url: jdbc:mysql://104.197.25.115/notice
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: notice
     password: notice
