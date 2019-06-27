@@ -22,6 +22,9 @@ public class Notice extends AbstractEntity implements AggregateRoot {
 	private long writer;
 	private String registerDate;
 
+	public Notice() {
+		
+	}
 	
 	public Notice(NoticeType noticeType, String title, String contents, long writer, String registerDate) {
 		this.noticeType = noticeType;

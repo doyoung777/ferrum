@@ -28,6 +28,10 @@ public class Book extends AbstractEntity implements AggregateRoot {
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	
+	public Book() {
+		
+	}
+	
 	public Book(String isbn, String title, String author, String publisher,Category category, BookStatus bookstatus) {
 		
 		this.isbn	= isbn;
