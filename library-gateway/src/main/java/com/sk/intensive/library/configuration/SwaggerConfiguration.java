@@ -32,7 +32,7 @@ public class SwaggerConfiguration {
     }
  
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("amabono")
+        return new ApiInfoBuilder().title("Library System API")
                 .description("REST API")
                 .version("v1").build();
     }

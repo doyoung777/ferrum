@@ -18,8 +18,6 @@ public class ApiController implements SwaggerResourcesProvider {
 
 	@Override
 	public List get() {
-		
-		
 		List resources = new ArrayList<>();		
 		resources.add(swaggerResource("library-member", "/member/v2/api-docs","2.0"));
 		resources.add(swaggerResource("library-book", "/activity/v2/api-docs","2.0"));
@@ -35,8 +33,4 @@ public class ApiController implements SwaggerResourcesProvider {
 	        swaggerResource.setSwaggerVersion(version);
 	        return swaggerResource;
 	}
-	
-	
-	
-
 }
